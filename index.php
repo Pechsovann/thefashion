@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Fashion</title>
     
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link href="css/style.css">
+    <link href="asset/css/style.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 </head>
     <body>
-        <!-- menu -->
+        <!-- Start nav bar -->
         <nav class="navbar navbar-default navbar-inverse" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" rel="home" href="home.php"><img style=" margin-left:30px;width:80px;height:45px;margin-top:-12px;" class="logostyle" src="image/slide/fashion.png"></a>
+            <a class="navbar-brand" rel="home" href="home.php"><img style=" margin-left:30px;width:80px;height:45px;margin-top:-12px;" class="logostyle" src="asset/image/slide/fashion.png"></a>
             
             <a class="navbar-brand" rel="home" href="allcart.php">
                 <span class="glyphicon glyphicon-shopping-cart" style=" color:white;"></span></a>
@@ -89,55 +97,69 @@
             </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+        <!-- End nav bar -->
 
-        <!-- Slide -->
-        <div class="container" style="margin-top:58px;margin-bottom:8px;">
-            <div class="row">
-            <!-- Carousel -->
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">    
-            <!-- Indicators -->
-             <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="5" class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="6" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="7" class=""></li>
+        <!-- Images from local folder for slide we set in array -->
+        <?php  
+            $images = ['thefashion_slide1.jpg','thefashion_slide2.png','thefashion_slide3.jpg',
+                    'thefashion_slide4.jpg','thefashion_slide5.jpg','thefashion_slide6.jpg','thefashion_slide7.jpg',]
+        ?>
+
+
+        <!-- Start slide body -->
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                <?php 
+                    $i = 0;
+                    foreach($images as $img): 
+                        if($i == 0){
+                            echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'" class="active"></li>';
+                        }else{
+                            echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"></li>';
+                        }
+                        $i++;
+                    endforeach;
+                ?>
             </ol>
-            <!-- image slide -->
-        <div class="carousel-inner">
-            <div class="item" style="max-height:460px;">
-	        
-                <a href="https://www.facebook.com/cambodiathefashion/" target="_blank">
-			    <img src="image/slide/thefashion_slide1.jpg" alt="First slide"></a>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+            <?php $i = 0;
+            foreach($images as $img):
+                if($i==0){
+                    echo '
+                        <div class="item active">
+                            <img src="/asset/image/slide/'.$img.'" alt="...">
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                    ';
+                }else{
+                    echo '
+                        <div class="item">
+                            <img src="/asset/image/slide/'.$img.'" alt="...">
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                    ';
+                }
+                $i++;
+            endforeach;
+            ?>
             </div>
-            <div class="item" style="max-height:460px;">
-                <a href="https://www.wingmoney.com/en/" target="_blank">
-                <img src="image/slide/thefashion_slide2.jpg" alt="Second slide"></a>
-            </div>
-            <div class="item" style="max-height:460px;">
-                <a href="http://ibuythefashion.com/women.php" target="_blank">
-			    <img src="image/slide/thefashion_slide3.jpg" alt="Third slide"></a>
-            </div>
-	        <div class="item active" style="max-height:460px;">
-                <a href="http://ibuythefashion.com/men.php" target="_blank">
-			    <img src="image/slide/thefashion_slide4" alt="4th slide"></a>
-            </div>
-	        <div class="item" style="max-height:460px;">
-                <a href="http://ibuythefashion.com/accessories.php" target="_blank">
-			    <img src="image/slide/thefashion_slide5.jpg" alt="5th slide"></a>
-            </div>
-	        <div class="item" style="max-height:460px;">
-                <a href="http://www.pipay.com/" target="_blank">
-			    <img src="image/slide/thefashion_slide6.jpg" alt="6th slide"></a>
-            </div>
-	        <div class="item" style="max-height:460px;">
-                <a href="https://www.paygo24.com/" target="_blank">
-			    <img src="image/slide/thefashion_slide7.jpg" alt="7th slide"></a>
-            </div>
-            
-               
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
         </div>
+        <!-- End slide body -->
+    
     </body>
 </html>
