@@ -107,16 +107,18 @@
 
 
         <!-- Start slide body -->
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+    <div class="col-md-10 col-md-offset-1">
+        <div id="carousel-example-generic" class="carousel slide " data-ride="carousel">
 
             <ol class="carousel-indicators">
                 <?php 
                     $i = 0;
                     foreach($images as $img): 
                         if($i == 0){
-                            echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'" class="active"></li>';
+                            echo '<li data-target="#carousel-example-generic" data-slide-to="'.$i.'" class="active"></li>';
                         }else{
-                            echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"></li>';
+                            echo '<li data-target="#carousel-example-generic" data-slide-to="'.$i.'"></li>';
                         }
                         $i++;
                     endforeach;
@@ -130,7 +132,7 @@
                 if($i==0){
                     echo '
                         <div class="item active">
-                            <img src="/asset/image/slide/'.$img.'" alt="...">
+                            <img class="img-slide" src="/asset/image/slide/'.$img.'" alt="...">
                             <div class="carousel-caption">
                                 ...
                             </div>
@@ -139,7 +141,7 @@
                 }else{
                     echo '
                         <div class="item">
-                            <img src="/asset/image/slide/'.$img.'" alt="...">
+                            <img class="img-slide" src="/asset/image/slide/'.$img.'" alt="...">
                             <div class="carousel-caption">
                                 ...
                             </div>
@@ -160,6 +162,6 @@
             </a>
         </div>
         <!-- End slide body -->
-    
+    </div>
     </body>
 </html>
