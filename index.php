@@ -108,7 +108,7 @@
 
         <!-- Start slide body -->
 
-    <div class="col-md-10 col-md-offset-1">
+    <div class="container">
         <div id="carousel-example-generic" class="carousel slide " data-ride="carousel">
 
             <ol class="carousel-indicators">
@@ -132,7 +132,7 @@
                 if($i==0){
                     echo '
                         <div class="item active">
-                            <img class="img-slide" src="/asset/image/slide/'.$img.'" alt="...">
+                            <img class="img-slide" style="width:100%" src="/asset/image/slide/'.$img.'" alt="...">
                             <div class="carousel-caption">
                                 ...
                             </div>
@@ -162,6 +162,42 @@
             </a>
         </div>
         <!-- End slide body -->
+
+        <h3 style="background-color: #6f6f6f;color: aliceblue;width: 160px;height: 25px;font-family: monospace;"><center>New arraive</center></h3>
+
+
+        
+        <?php
+            $items = array(
+                array('product1.png','SDIY000','8 USD'),
+                array('product2.png','SCFG02','12.5 USD'),
+                array('product3.jpg','PSH317426','16 USD'),
+                array('product4.jpg','PSH129292','14 USD'),
+                array('product5.jpg','PSH066938','16 USD'),
+                array('product6.jpg','PSH921798','16 USD')
+            );
+            echo '<div class="col-md-12">';
+                foreach($items as $item){
+                    echo '<div class="col-md-2 col-sm-4 col-xs-6">';
+                        echo '
+                            <a href="http://">
+                                <img src="image/new_arrival/'.$item[0].'" alt="..." style="width: 180px;padding-right: 20px;padding-left: 20px;">
+                            </a>
+                            <p style ="margin-left:20px"><br>'.$item[1].'<br>'.$item[2].'</p>
+                        ';
+                        echo '<br>';
+                    echo '</div>';
+                }
+            echo '</div>';
+
+        ?>
+        
     </div>
+
+
+
+
+
+
     </body>
 </html>
